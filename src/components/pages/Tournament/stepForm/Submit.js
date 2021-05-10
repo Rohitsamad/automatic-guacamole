@@ -1,58 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import '../../Apps.css';
-import fire from '../../fire';
+import React from 'react'
 
-function Match() {
-  const [teams, setTeam] = useState([]);
-  
-  const ref = fire.firestore().collection("teams");
-  console.log(ref);
+export const Submit = () => {
+    return (
+        <>
+        <h1>rohit</h1>
+    
 
-  function getteam() {
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setTeam(items);
-    });
-  }
-
-  useEffect(() => {
-    getteam();
-  }, []);
-  
-  return (
-    <>
-    {teams.map(teams => (
-
-      
-      
-
-    <div className="wrapper" key={teams.id}>
-      <h1>Dota tournament</h1>
+    <div className="wrapper" >
   <div className="item">
     <div className="item-parent">
-      <p>tannu</p>
+      <p>Winner</p>
     </div>
     <div className="item-childrens">
       <div className="item-child">
         <div className="item">
           <div className="item-parent">
-            <p>rohit--25</p>
+            <p>team 2</p>
           </div>
           <div className="item-childrens">
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>rohit--19</p>
+                  <p>team1</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team1}--8</p>
+                    <p>teams.team1</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team2}--4</p>
+                    <p>teams.team2--</p>
                   </div>
                   
                 </div>
@@ -63,14 +39,14 @@ function Match() {
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>karan--15</p>
+                  <p>team 2</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team3}--9</p>
+                    <p>teams.team3</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team4}--0</p>
+                    <p>teams.team4</p>
                   </div>
                   
                 </div>
@@ -83,20 +59,20 @@ function Match() {
       <div className="item-child">
         <div className="item">
           <div className="item-parent">
-            <p>tannu--29</p>
+            <p>team 2</p>
           </div>
           <div className="item-childrens">
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>tannu--18</p>
+                  <p>team 3</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team5}--9</p>
+                    <p>teams.team5</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team6}--6</p>
+                    <p>teams.team6</p>
                   </div>
                 </div>
               </div>
@@ -105,14 +81,14 @@ function Match() {
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>nitin--14</p>
+                  <p>team 4</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team7}--2</p>
+                    <p>teams.team7</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team8}--7</p>
+                    <p>teams.team8</p>
                   </div>
                   
                 </div>
@@ -125,8 +101,6 @@ function Match() {
     </div>
   </div>
 </div>
-    ))} </>
-  );
+    )) </>
+    )
 }
-
-export default Match;

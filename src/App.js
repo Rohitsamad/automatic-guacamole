@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import './Login.css';
 import Login from './components/Auth/Login';
 import fire from './components/fire';
 import Cap from './Cap';

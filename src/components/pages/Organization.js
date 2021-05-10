@@ -2,11 +2,11 @@ import React from 'react';
 
 import '../../App.css';
 
-import Team from '../pages/creatematches/Team';
+import  Multisteped from './Tournament/Multisteped';
 
 const Organization = () => {
     return (
-        <Team />
+        <Multisteped />
     );
 }
 

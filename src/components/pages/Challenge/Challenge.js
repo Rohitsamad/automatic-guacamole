@@ -36,8 +36,6 @@ const Challenge = () => {
 
   return (
     <>
-      <Timer />
-      <Creation />
     <Container>
 
       
@@ -48,6 +46,8 @@ const Challenge = () => {
       
       <GlobalStyle />
     </Container>
+      <Timer />
+      <Creation />
     </>
   );
 }

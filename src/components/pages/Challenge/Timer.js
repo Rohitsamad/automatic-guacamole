@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './timer.css';
 
 export const Timer = () => {
     const [count,setCount] = useState(100);
@@ -59,15 +59,15 @@ export const Timer = () => {
     return(
         <>
         <div>
-            <h1>counter</h1>
+            <h1>Time Counter</h1>
             <hr/>
             <div className={disable?'Show':'Hide'}>
-                <span><input type="number" value={hours} onChange={handleHours}  min="0"/>Hours</span>
-                <span><input type="number" value={minute} onChange={handleMinutes}  min="0" max="59"/>Minutes</span>
-                <span><input type="number" value={second} onChange={handleSeconds}  min="0" max="59"/>Seconds</span>
+                <span>Hours<input type="number" value={hours} onChange={handleHours}  min="0"/></span>
+                <span>Minutes<input type="number" value={minute} onChange={handleMinutes}  min="0" max="59"/></span>
+                <span>Seconds<input type="number" value={second} onChange={handleSeconds}  min="0" max="59"/></span>
             </div>
-                <span><button type="submit" onClick={handleClick}>{disable?'Stop':'Start'}</button></span>
-                
+                <span><button type="submit" class="x" onClick={handleClick}>{disable?'Stop':'Start'}</button></span>
+             
             <p>
                 {hours.toString().padStart(2,'0')}
                 :{minute.toString().padStart(2,'0')}

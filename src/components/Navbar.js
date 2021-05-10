@@ -33,17 +33,17 @@ function Navbar({handleLogout}) {
                     </li>
                     <li className='nav-item'>
                         <Link to='/leaderboard' className='nav-links' onClick={closeMobileMenu}>
-                            Board
+                            Fixture
                         </Link>
                     </li>
                     <li className='nav-item'>
                         <Link to='/organization' className='nav-links' onClick={closeMobileMenu}>
-                            match
+                            Tournament
                         </Link>
                     </li>
                     <li className='nav-item'>
                         <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
-                            Login
+                            Challenges
                         </Link>
                     </li>
                     
