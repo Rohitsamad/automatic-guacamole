@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { MdClose, } from "react-icons/md";
 import { useSpring, animated } from "react-spring";
 import fire from '../../fire';
 
 const Background = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   display: flex;
@@ -34,9 +34,6 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: #141414;
-  p {
-    margin-bottom: 1rem;
-  }
   button {
     padding: 10px 24px;
     background: #141414;
@@ -48,7 +45,7 @@ const ModalContent = styled.div`
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
   width: 32px;
   height: 32px;
@@ -78,15 +75,10 @@ export const Team1 = ({showModel, setShowModel}) => {
     const inc = () => {
         setNum(num+1);
 
-        fire.firestore().collection('challenge').doc('uDm1mxLsYKqEX95AbZ56').update({     
-            num : num
-          })
     };
 
     const dec = () => {
-        fire.firestore().collection('challenge').doc('uDm1mxLsYKqEX95AbZ56').update({     
-            num : num
-          })
+
         if (num > 0 ) {
         setNum(num-1);
     } else {
@@ -100,9 +92,7 @@ export const Team1 = ({showModel, setShowModel}) => {
 
     const inc1 = () => {
         setNum1(num1+1);
-        fire.firestore().collection('challenge').doc('uDm1mxLsYKqEX95AbZ56').update({     
-            num1 : num1
-          })
+        
     };
 
     const dec1 = () => {
@@ -112,10 +102,40 @@ export const Team1 = ({showModel, setShowModel}) => {
         alert('sorry limit reached')
         setNum1(0)
     }
-    fire.firestore().collection('challenge').doc('uDm1mxLsYKqEX95AbZ56').update({     
-        num1 : num1
-      })
+    
     };
+
+
+
+
+
+
+    const [teams, setTeam] = useState([]);
+  
+  const ref = fire.firestore().collection("challenge");
+  console.log(ref);
+
+  function getteam() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setTeam(items);
+    });
+  }
+
+  useEffect(() => {
+    getteam();
+  }, []);
+
+
+
+
+
+
+
+
 
 
     return (
@@ -126,19 +146,26 @@ export const Team1 = ({showModel, setShowModel}) => {
                 <animated.div style={animation}>
                 <ModalWrapper showModel={showModel} >
                     <ModalContent>
-                        <div>
-                            <h1>team 1</h1>
+                        <>
+                        {teams.map(teams => (
+                        <div  >
+                            <h1 key={teams.id}>{teams.teamchallenge}</h1>
                             <h1>{num}</h1>
                             <button onClick={inc}>+</button>
                             <button onClick={dec}>-</button>
                         </div>
-                        <div>
-                            <h1>team 2</h1>
+                        ))}
+                        </>
+                        <>
+                        {teams.map(teams => (
+                        <div  >
+                            <h1 key={teams.id}>{teams.teamchallenge1}</h1>
                             <h1>{num1}</h1>
                             <button onClick={inc1}>+</button>
                             <button onClick={dec1}>-</button>
                         </div>
-                    
+                        ))}
+                        </>
                     </ModalContent>
                     <CloseModalButton 
                     aria-label='Close modal'

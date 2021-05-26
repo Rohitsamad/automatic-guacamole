@@ -66,7 +66,7 @@ export const Timer = () => {
                 <span>Minutes<input type="number" value={minute} onChange={handleMinutes}  min="0" max="59"/></span>
                 <span>Seconds<input type="number" value={second} onChange={handleSeconds}  min="0" max="59"/></span>
             </div>
-                <span><button type="submit" class="x" onClick={handleClick}>{disable?'Stop':'Start'}</button></span>
+                <span><button type="submit" className="x"  onClick={handleClick}>{disable?'Stop':'Start'}</button></span>
              
             <p>
                 {hours.toString().padStart(2,'0')}

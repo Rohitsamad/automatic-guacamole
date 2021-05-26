@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { GlobalStyle } from './styles';
 import { Team1 } from './Team1';
-
+import fire from '../../fire';
 import Creation from './Creation';
 
 import Timer from './Timer';
@@ -33,21 +33,45 @@ const Challenge = () => {
     setShowModel(prev => !prev);
   };
   
+  const [teams, setTeam] = useState([]);
+  
+  const ref = fire.firestore().collection("challenge");
+  console.log(ref);
 
+  function getteam() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setTeam(items);
+    });
+  }
+
+  useEffect(() => {
+    getteam();
+  }, []);
+  
   return (
     <>
-    <Container>
+    <Creation />
+    {teams.map(teams => (
+      <div key={teams.id}>
+        <Timer />
 
-      
-      <Button onClick={openModel}>Team 1</Button>
-      <Team1 showModel={showModel} setShowModel={setShowModel} />
-      <Button onClick={openModel}>Team 2</Button>
-      <Team1 showModel={showModel} setShowModel={setShowModel} />
-      
-      <GlobalStyle />
-    </Container>
-      <Timer />
-      <Creation />
+        <Container>
+    
+          
+          <Button onClick={openModel}>{teams.teamchallenge}</Button>
+          <Team1 showModel={showModel} setShowModel={setShowModel} />
+          <Button onClick={openModel}>{teams.teamchallenge1}</Button>
+          <Team1 showModel={showModel} setShowModel={setShowModel} />
+          
+          <GlobalStyle />
+        </Container>
+      </div>
+
+    ))}
     </>
   );
 }

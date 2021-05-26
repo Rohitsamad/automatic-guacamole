@@ -2,7 +2,16 @@ import React, { useEffect, useState } from 'react';
 import '../../Apps.css';
 import fire from '../../fire';
 
+
+
+
+
+
+
 function Match() {
+
+  
+
   const [teams, setTeam] = useState([]);
   
   const ref = fire.firestore().collection("teams");
@@ -26,33 +35,37 @@ function Match() {
     <>
     {teams.map(teams => (
 
-      
-      
 
     <div className="wrapper" key={teams.id}>
-      <h1>Dota tournament</h1>
+     <heading><h1>{teams.tournamentname}</h1></heading> 
   <div className="item">
     <div className="item-parent">
-      <p>tannu</p>
+      <p>{teams.winner}</p>
     </div>
     <div className="item-childrens">
       <div className="item-child">
         <div className="item">
           <div className="item-parent">
-            <p>rohit--25</p>
+            <p>{teams.semifinal1}--{teams.s1}</p>
           </div>
           <div className="item-childrens">
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>rohit--19</p>
+                  <p>{teams.round1}--{teams.r1}</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team1}--8</p>
+                    <p>
+                    {teams.team1}--{teams.t1}
+              
+              
+              </p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team2}--4</p>
+                    <p>
+                    {teams.team2}
+                    --{teams.t2}</p>
                   </div>
                   
                 </div>
@@ -63,14 +76,14 @@ function Match() {
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>karan--15</p>
+                  <p>{teams.round2}--{teams.r2}</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team3}--9</p>
+                    <p>{teams.team3}--{teams.t3}</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team4}--0</p>
+                    <p>{teams.team4}--{teams.t4}</p>
                   </div>
                   
                 </div>
@@ -83,20 +96,20 @@ function Match() {
       <div className="item-child">
         <div className="item">
           <div className="item-parent">
-            <p>tannu--29</p>
+            <p>{teams.semifinal2}--{teams.s2}</p>
           </div>
           <div className="item-childrens">
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>tannu--18</p>
+                  <p>{teams.round3}--{teams.r3}</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team5}--9</p>
+                    <p>{teams.team5}--{teams.t5}</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team6}--6</p>
+                    <p>{teams.team6}--{teams.t6}</p>
                   </div>
                 </div>
               </div>
@@ -105,14 +118,14 @@ function Match() {
             <div className="item-child">
               <div className="item">
                 <div className="item-parent">
-                  <p>nitin--14</p>
+                  <p>{teams.round4}--{teams.r4}</p>
                 </div>
                 <div className="item-childrens">
                   <div className="item-child">
-                    <p>{teams.team7}--2</p>
+                    <p>{teams.team7}--{teams.t7}</p>
                   </div>
                   <div className="item-child">
-                    <p>{teams.team8}--7</p>
+                    <p>{teams.team8}--{teams.t8}</p>
                   </div>
                   
                 </div>

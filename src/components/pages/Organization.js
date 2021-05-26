@@ -2,11 +2,11 @@ import React from 'react';
 
 import '../../App.css';
 
-import  Multisteped from './Tournament/Multisteped';
+import  Tournament from './Tournament/screens/Tournament';
 
 const Organization = () => {
     return (
-        <Multisteped />
+        <Tournament />
     );
 }
 

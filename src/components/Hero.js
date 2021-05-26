@@ -8,8 +8,8 @@ function Hero() {
     return (
         <div className='hero-container'>
             
-            <h1>WINNER WIN LOSER LOSE</h1>
-            <p>Watch who win and who lose?</p>
+            <h1>WINNER'S WIN, LOSER'S LOSE</h1>
+            <p>Watch who wins and who loses?</p>
             
         </div>
     );
